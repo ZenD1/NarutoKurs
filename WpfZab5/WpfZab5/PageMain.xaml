@@ -1,0 +1,36 @@
+﻿<Page x:Class="WpfZab5.PageMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfZab5"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Информационная система ВУ">
+    <StackPanel Background="{StaticResource BackgroundWindowResource}">
+     
+        <TextBlock Margin="25,30,25,5" FontSize="20">
+            Система внутреннего учета ивестиционной компании
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PageEmployee.xaml">Сотрудники</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PageClient.xaml">Клиенты</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PageContract.xaml">Договора</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PagePappers.xaml">Ценные бумаги</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PageTrade.xaml">Сделки</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="25,30,5,5">
+            <Hyperlink NavigateUri="PageInfo.xaml">Справка</Hyperlink>
+        </TextBlock>
+        <Button Content="Выход" Height="30" Width="96" HorizontalAlignment="Left" Margin="30,20"/>
+
+    </StackPanel>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="NarutoKurs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NarutoKurs"
+        mc:Ignorable="d"
+        Title="NarutoViki" Height="450" Width="800"
+        WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\zend1\Desktop\NarutoKurs\NarutoKurs\image\matfon.jpg" />
+    </Window.Background>
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="1" Content="Добро пожаловать!" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Margin="0,10,0,0"/>
+
+        <Viewbox Grid.Column="0" Grid.Row="0"/>
+
+        <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" Margin="0,117,0,0" Grid.RowSpan="2"/>
+
+        <Viewbox Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Stretch="Uniform">
+            <StackPanel VerticalAlignment="Top">
+                <Button x:Name="CharactersButton" Content="Персонажи" Foreground="WhiteSmoke" Style="{StaticResource GelButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="4,5" Click="CharactersButton_Click"/>
+                <Button x:Name="TechniquesButton" Content="Техники"  Foreground="WhiteSmoke" Style="{StaticResource GelButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="4,5" Click="TechniquesButton_Click"/>
+                <Button x:Name="TailedBeastsButton" Content="Хвостатые"  Foreground="WhiteSmoke" Style="{StaticResource GelButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="4,5" Click="TailedBeastsButton_Click"/>
+            </StackPanel>
+        </Viewbox>
+    </Grid>
+
+
+</Window>

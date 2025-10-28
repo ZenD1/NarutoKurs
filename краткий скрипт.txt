@@ -1,0 +1,88 @@
+CREATE TABLE Roles (
+    id INT PRIMARY KEY,
+    role_name NVARCHAR(50) NOT NULL
+);
+--CREATE TABLE [User] (
+--    id INT IDENTITY PRIMARY KEY,
+--    username NVARCHAR(50) NOT NULL UNIQUE, -- Логин пользователя
+--    email NVARCHAR(100) NOT NULL UNIQUE, -- Электронная почта пользователя
+--    passwordHash varchar(12) NOT NULL, -- Зашифрованный пароль пользователя
+	    role int foreign key roles(id)
+--	) 
+
+-- Вставка значений в таблицу Roles
+INSERT INTO Roles (id, role_name) VALUES (1, 'Администратор');
+INSERT INTO Roles (id, role_name) VALUES (2, 'Пользователь');
+
+-- Создание остальных таблиц с необходимыми ограничениями и внешними ключами
+CREATE TABLE RangTech (
+    id INT IDENTITY PRIMARY KEY,
+    tier NVARCHAR(255) NULL
+);
+
+CREATE TABLE Rangs (
+    id INT IDENTITY PRIMARY KEY,
+    name_rang BIGINT NULL
+);
+
+CREATE TABLE Caudate (
+    id INT IDENTITY PRIMARY KEY,
+    caudatename NVARCHAR(255) NOT NULL,
+    owner NVARCHAR(255),
+    information NVARCHAR(1000)
+);
+
+CREATE TABLE Teams (
+    id INT IDENTITY PRIMARY KEY,
+    name_team NVARCHAR(255) NULL
+);
+
+CREATE TABLE Vilages (
+    id INT IDENTITY PRIMARY KEY,
+    name_vilage NVARCHAR(255) NULL
+);
+
+CREATE TABLE Clan (
+    id INT IDENTITY PRIMARY KEY,
+    name_clan NVARCHAR(255) NULL
+);
+
+CREATE TABLE SubTypes_Tech (
+    id INT IDENTITY PRIMARY KEY,
+    name_subtype NVARCHAR(255) NULL
+);
+
+CREATE TABLE Types_Tech (
+    id INT IDENTITY PRIMARY KEY,
+    name_type NVARCHAR(255) NULL
+);
+
+CREATE TABLE Techniques (
+    id INT IDENTITY PRIMARY KEY,
+    name NVARCHAR(255) NOT NULL,
+    types INT NULL DEFAULT 1,
+    subtypes INT NULL DEFAULT 1,
+    rangtech INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (types) REFERENCES Types_Tech(id),
+    FOREIGN KEY (subtypes) REFERENCES SubTypes_Tech(id),
+    FOREIGN KEY (rangtech) REFERENCES RangTech(id)
+);
+
+CREATE TABLE Characters (
+    id INT IDENTITY PRIMARY KEY,
+    name NVARCHAR(255) NOT NULL,
+    clan INT NULL DEFAULT 1,
+    team INT NULL DEFAULT 1,
+    rang INT NULL DEFAULT 1,
+    village INT NULL DEFAULT 1,
+    caudate INT NULL DEFAULT 1,
+    main_techniques INT NULL DEFAULT 1,
+    age INT NULL,
+    photo IMAGE NULL,
+    FOREIGN KEY (main_techniques) REFERENCES Techniques(id),
+    FOREIGN KEY (rang) REFERENCES Rangs(id),
+    FOREIGN KEY (team) REFERENCES Teams(id),
+    FOREIGN KEY (caudate) REFERENCES Caudate(id),
+    FOREIGN KEY (clan) REFERENCES Clan(id),
+    FOREIGN KEY (village) REFERENCES Vilages(id)
+);

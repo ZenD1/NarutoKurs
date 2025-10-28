@@ -1,0 +1,535 @@
+--CREATE TABLE SubTypes_Tech (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_subtype NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE Vilages (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_vilage NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE Clan (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_clab NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE RangTech (
+--    id INT IDENTITY PRIMARY KEY,
+--    tier NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE Rangs (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_rang BIGINT NULL
+--);
+
+--CREATE TABLE Caudate (
+--    id INT IDENTITY PRIMARY KEY,
+--    caudatename NVARCHAR(255) NOT NULL
+--);
+
+--CREATE TABLE Teams (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_team NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE Techniques (
+--    id INT IDENTITY PRIMARY KEY,
+--    name NVARCHAR(255) NOT NULL,
+--    types INT NULL DEFAULT 1,
+--    subtypes INT NULL DEFAULT 1,
+--    rangtech INT NOT NULL DEFAULT 1
+--);
+
+--CREATE TABLE Types_Tech (
+--    id INT IDENTITY PRIMARY KEY,
+--    name_type NVARCHAR(255) NULL
+--);
+
+--CREATE TABLE Characters (
+--    id INT IDENTITY PRIMARY KEY,
+--    name NVARCHAR(255) NOT NULL,
+--    clan INT NULL DEFAULT 1,
+--    team INT NULL DEFAULT 1,
+--    rang INT NULL DEFAULT 1,
+--    village INT NULL DEFAULT 1,
+--    caudate INT NULL DEFAULT 1,
+--    main_techniques INT NULL DEFAULT 1,
+--    age INT NULL,
+--    photo IMAGE NULL,
+--    FOREIGN KEY (main_techniques) REFERENCES Techniques(id)
+--);
+
+--ALTER TABLE Characters ADD CONSTRAINT characters_rang_foreign FOREIGN KEY(rang) REFERENCES Rangs(id);
+--ALTER TABLE Characters ADD CONSTRAINT characters_team_foreign FOREIGN KEY(team) REFERENCES Teams(id);
+--ALTER TABLE Characters ADD CONSTRAINT characters_caudate_foreign FOREIGN KEY(caudate) REFERENCES Caudate(id);
+--ALTER TABLE Characters ADD CONSTRAINT characters_clan_foreign FOREIGN KEY(clan) REFERENCES Clan(id);
+--ALTER TABLE Characters ADD CONSTRAINT characters_village_foreign FOREIGN KEY(village) REFERENCES Vilages(id);
+--ALTER TABLE Techniques ADD CONSTRAINT techniques_types_foreign FOREIGN KEY([types]) REFERENCES Types_Tech(id);
+--ALTER TABLE Techniques ADD CONSTRAINT techniques_subtypes_foreign FOREIGN KEY(subtypes) REFERENCES SubTypes_Tech(id);
+--ALTER TABLE Techniques ADD CONSTRAINT techniques_rangtech_foreign FOREIGN KEY(rangtech) REFERENCES RangTech(id);
+
+ --Добавление данных в таблицу Clan
+--INSERT INTO Clan (name_clan)
+--VALUES
+--('Не имеется'),
+--('Клан Абураме'),
+--('Дом Какэй'),
+--('Клан Кагуя'),
+--('Клан Ёты'),
+--('Клан Ёцуки'),
+--('Клан Акимичи'),
+--('Клан Амагири'),
+--('Клан Джуго'),
+--('Клан Ибури'),
+--('Клан Изуно'),
+--('Клан Инузука'),
+--('Клан Казекаге'),
+--('Клан Камизуру'),
+--('Клан Кедоин'),
+--('Клан Кодон'),
+--('Клан Кохаку'),
+--('Клан Куманои'),
+--('Клан Курама'),
+--('Клан Ли'),
+--('Клан Оникума'),
+--('Клан Ооцуцуки'),
+--('Клан Ринха'),
+--('Клан Рюю'),
+--('Клан Сарутоби'),
+--('Клан Сендо'),
+--('Клан Такэтори'),
+--('Клан Тенро'),
+--('Клан Узумаки'),
+--('Клан Учиха'),
+--('Клан Фунато'),
+--('Клан Фуума'),
+--('Клан Фуума (Страна Звука)'),
+--('Клан Хагоромо'),
+--('Клан Хатаке'),
+--('Клан Хирасака'),
+--('Клан Хошигаки'),
+--('Клан Хьюга'),
+--('Клан Цучигумо'),
+--('Клан Чиноике'),
+--('Клан Шиин'),
+--('Клан Шимура'),
+--('Клан Широгане'),
+--('Клан Нара'),
+--('Клан Сенджу'),
+--('Семья Вагараши'),
+--('Семья Васаби'),
+--('Семья Кагецу'),
+--('Семья Каратачи'),
+--('Семья Хооки'),
+--('Клан Хозуки'),
+--('Клан Юки'),
+--('Клан Яманака');
+
+-- Добавление данных в таблицу Vilages
+--INSERT INTO Vilages (name_vilage)
+--VALUES
+--('Неизвестная деревня'),
+--('Деревня Бамбука'),
+--('Деревня Воющего Волка'),
+--('Деревня Вырубки Дерева'),
+--('Деревня Дайдай'),
+--('Деревня Дерева Гендзюцу'),
+--('Деревня Джомаэ'),
+--('Деревня Инахо'),
+--('Деревня Керамики'),
+--('Деревня Кисараги'),
+--('Деревня Надешико'),
+--('Деревня Скрытая под Луной'),
+--('Деревня Скрытая Среди Снов'),
+--('Деревня Скрытого Звука'),
+--('Деревня Скрытого Мороза'),
+--('Деревня Скрытого Снега'),
+--('Деревня Скрытой Дымки'),
+--('Деревня Скрытой Звезды'),
+--('Деревня Скрытой Скалы'),
+--('Деревня Скрытых Водоворотов'),
+--('Деревня Скрытых Долин'),
+--('Деревня Суги'),
+--('Деревня Такуми'),
+--('Деревня Тоника'),
+--('Деревня Хачо'),
+--('Деревня Цучигумо'),
+--('Зелёные Берега');
+
+--INSERT INTO Rangs (name_rang)
+--VALUES
+--('Нету ранга'),
+--('Студент Академии'),
+--('Генин'),
+--('Чуунин'),
+--('Специальный Джоунин'),
+--('Джоунин'),
+--('Каге');
+
+--INSERT INTO RangTech (tier)
+--VALUES
+--('Не имеется ранга'),
+--('Ранг-E'),
+--('Ранг-D'),
+--('Ранг-C'),
+--('Ранг-B'),
+--('Ранг-A'),
+--('Ранг-S');
+
+--Добавление данных в таблицу Types_Tech
+--INSERT INTO Types_Tech (name_type)
+--VALUES
+--('Не имеется техники'),
+--('Ниндзюцу (Техники Ниндзя)'),
+--('Гендзюцу (Иллюзорные Техники)'),
+--('Тайдзюцу (Техники Тела)');
+
+---- Добавление данных в таблицу SubTypes_Tech
+--INSERT INTO SubTypes_Tech (name_subtype)
+--VALUES
+--('Не имеется техники'),
+--('Ниндзюцу Барьера'),
+--('Букидзюцу'),
+--('Техники Поглощения Чакры'),
+--('Техники Клонирования'),
+--('Фууиндзюцу'),
+--('Хидзюцу'),
+--('Джуиндзюцу'),
+--('Джудзюцу'),
+--('Киндзюцу'),
+--('Медицинские Ниндзюцу'),
+--('Ниншуу'),
+--('Нинтайдзюцу'),
+--('Сендзюцу'),
+--('Сюрикендзюцу'),
+--('Пространственно-Временные Ниндзюцу');
+
+-- Добавление данных в таблицу Teams (без повторов)
+--INSERT INTO [dbo].[Teams] ([name_team])
+--VALUES
+--('Нету команды'),
+--    ('Акацуки'),
+--    ('Армия Белых Зецу'),
+--    ('Банда Акаги'),
+--    ('Банда Бьякуя'),
+--    ('Банда Гаракуты'),
+--    ('Банда Джако'),
+--    ('Банда Канабуна'),
+--    ('Банда Мезу'),
+--    ('Банда Мокузу'),
+--    ('Банда Молнии'),
+--    ('Банда Тёмного Грома'),
+--    ('Бандиты Муджина'),
+--    ('Барьерная Команда Кумо'),
+--    ('Категория:Безымянные команды'),
+--    ('Борцы Сумо'),
+--    ('Братья-Демоны'),
+--    ('Взвод Специальной Миссии Конохи'),
+--    ('Взвод Стражей Хокаге'),
+--    ('Военная Полиция Конохи'),
+--    ('Вторая Дивизия'),
+--    ('Грозовое Облако'),
+--    ('Группа Анализа'),
+--    ('Группа Нокизару'),
+--    ('Группа Праджни'),
+--    ('Группа Эскорта'),
+--    ('Группировка Магаки'),
+--    ('Двадцать Взводов'),
+--    ('Две Великие Жабы-Мудрецы'),
+--    ('Двенадцать Ниндзя-Защитников'),
+--    ('Девушки-Фанатки Наруто'),
+--    ('Джанин'),
+--    ('Дивизия Внезапного Нападения'),
+--    ('Дивизия Разведки'),
+--    ('Дивизия Тыловой Поддержки и Медицины'),
+--    ('Дивизия Шифрования'),
+--    ('Золотой и Серебряный Братья'),
+--    ('Ино-Саку-Сай'),
+--    ('Ино-Шика-Чоу (15-е)'),
+--    ('Кара'),
+--    ('Клан Странствующих Ниндзя'),
+--    ('Команда'),
+--    ('Шаблон:Команда'),
+--    ('Команда 10 (Асума)'),
+--    ('Команда 10 (Моэги)'),
+--    ('Команда 15'),
+--    ('Команда 2'),
+--    ('Команда 25'),
+--    ('Команда 40'),
+--    ('Команда 5'),
+--    ('Команда 6'),
+--    ('Команда 7 (Какаши)'),
+--    ('Команда 7 (Конохамару)'),
+--    ('Команда 8'),
+--    ('Команда 9'),
+--    ('Команда Аджисай'),
+--    ('Команда Амено'),
+--    ('Команда Бандо'),
+--    ('Команда Барьера Листа'),
+--    ('Команда Ганрю'),
+--    ('Команда Гая'),
+--    ('Команда Годжи'),
+--    ('Команда Гурен'),
+--    ('Команда Досу'),
+--    ('Команда Дото из Трёх Человек'),
+--    ('Команда Запечатывания'),
+--    ('Команда Захвата Каймы'),
+--    ('Команда Ивато'),
+--    ('Команда Кабуто');
+
+--INSERT INTO [dbo].[Caudate] ([caudatename])
+--VALUES
+--('Не имеется хвостатого'),
+--    ('Шукаку'),
+--    ('Мататаби'),
+--    ('Исобу'),
+--    ('Сон Гоку'),
+--    ('Кокуоу'),
+--    ('Сайкен'),
+--    ('Чоумей'),
+--    ('Гьюки'),
+--    ('Курама'),
+--    ('Десятихвостый');
+
+--INSERT INTO Techniques (name, types, subtypes, rangtech)
+--VALUES
+--    ('Rasengan', 2, 10, 6),
+--    ('Chidori', 2, 10, 6),
+--    ('Shadow Clone Jutsu', 2, 5, 5),
+--    ('Fireball Jutsu', 2, 12, 4),
+--    ('Water Dragon Jutsu', 2, 6, 5),
+--    ('Earth Wall Jutsu', 2, 7, 5),
+--    ('Wind Blade Jutsu', 2, 6, 5),
+--    ('Lightning Strike', 2, 11, 6),
+--    ('Transformation Jutsu', 2, 8, 2),
+--    ('Genjutsu: Sharingan', 3, 3, 5),
+--    ('Byakugan', 2, 12, 4),
+--    ('Summoning Jutsu: Toad', 2, 9, 5),
+--    ('Amaterasu', 2, 4, 7),
+--    ('Tsukuyomi', 3, 6, 7),
+--    ('Kirin', 2, 10, 7),
+--    ('Shurikenjutsu', 2, 15, 4),
+--    ('Twin Rising Dragons', 2, 10, 5),
+--    ('Crystal Ice Mirrors', 2, 12, 5),
+--    ('Wind Scythe Jutsu', 2, 10, 5),
+--    ('Mud Wall Jutsu', 2, 7, 5),
+--    ('Mystical Palm Jutsu', 2, 14, 5),
+--    ('Body Flicker Technique', 2, 13, 3),
+--    ('Kamui', 2, 16, 7),
+--    ('Deidara Art: C4', 2, 12, 7),
+--    ('Hydro Pump Jutsu', 2, 6, 5),
+--    ('Mud Tsunami Jutsu', 2, 6, 7),
+--    ('Wind Release: Rasenshuriken', 2, 10, 7),
+--    ('Ink Clone Jutsu', 2, 4, 5),
+--    ('Dark Swamp Jutsu', 2, 6, 5),
+--    ('Fire Style: Fireball Jutsu', 2, 4, 4),
+--    ('Earth Release: Earth Flow River', 2, 6, 5),
+--    ('Water Prison Jutsu', 2, 6, 5),
+--    ('Blade of Wind', 2, 10, 5),
+--    ('Lightning Cutter', 2, 11, 5),
+--    ('Earth Spear', 2, 6, 4),
+--    ('Wind Release: Great Breakthrough', 2, 10, 5),
+--    ('Lava Release: Scorching Stream Rock Technique', 2, 6, 7),
+--    ('Magnet Release: Gold Dust Imperial Funeral', 2, 6, 7);
+
+--INSERT INTO [dbo].[Characters] (name, clan, team, rang, village, caudate, age)
+--VALUES
+--    ('Наруто Узумаки', 29, 54, 5, 7, 9, 17),  -- Клан Узумаки, Команда 8, Джоунин, Деревня Листа, Наруто
+--    ('Саске Учиха', 2, 54, 5, 6, 1, 17),  -- Клан Учиха, Команда 8, Джоунин, Деревня Листа, Саске
+--    ('Сакура Харуно', 1, 54, 5, 6, 1, 17),  -- Без клана, Команда 8, Джоунин, Деревня Листа, Сакура
+--    ('Какаши Хатаке', 19, 53, 5, 7, 1, 30),  -- Клан Хатаке, Команда 7, Джоунин, Деревня Листа, Какаши
+--    ('Гай Майто', 26, 61, 5, 6, 1, 27),  -- Без клана, Команда Гая, Джоунин, Деревня Листа, Гай
+--    ('Шикамару Нара', 44, 10, 5, 6, 1, 17),  -- Клан Нара, Команда 10, Джоунин, Деревня Листа, Шикамару
+--    ('Ино-Шика-Чоу', 39, 50, 5, 6, 1, 17),  -- Клан Юманака, Команда Ино-Шика-Чоу, Джоунин, Деревня Листа, Ино
+--    ('Асума Сарутоби', 27, 50, 5, 6, 1, 27),  -- Клан Сарутоби, Команда Ино-Шика-Чоу, Джоунин, Деревня Листа, Асума
+--    ('Ирука Умино', 28, 1, 5, 6, 1, 27),  -- Клан Умино, Команда 1, Джоунин, Деревня Листа, Ирука
+--    ('Конохамару Сарутоби', 28, 55, 5, 6, 1, 12),  -- Клан Сарутоби, Команда Конохомару, Джоунин, Деревня Листа, Конохамару
+--    ('ТэнТэн', 1, 15, 5, 6, 1, 17),  -- Без клана, Команда Тентена, Джоунин, Деревня Листа, ТэнТэн
+--    ('Нэджи Хьюга', 38, 56, 5, 6, 1, 17),  -- Клан Хьюга, Команда 9 ~ Команда Гая, Джоунин, Деревня Листа, Нэджи
+--    ('Хината Хьюга', 38, 56, 5, 6, 1, 17);  -- Клан Хьюга, Команда 9 ~ Команда Гая, Джоунин, Деревня Листа, Хината
+
+
+---- Обновление техник для Саске Учиха
+--UPDATE Characters
+--SET main_techniques = 2 -- Чидори
+--WHERE name = 'Саске Учиха';
+
+---- Обновление техник для Сакура Харуно
+--UPDATE Characters
+--SET main_techniques = 14 -- Цунаде Шизун
+--WHERE name = 'Сакура Харуно';
+
+---- Обновление техник для Какаши Хатаке
+--UPDATE Characters
+--SET main_techniques = 1 -- Расенган Какаши
+--WHERE name = 'Какаши Хатаке';
+
+---- Обновление техник для Гай Майто
+--UPDATE Characters
+--SET main_techniques = 28 -- Открытие Восьмых Ворот
+--WHERE name = 'Гай Майто';
+
+---- Обновление техник для Шикамару Нара
+--UPDATE Characters
+--SET main_techniques = 29 -- Техника Облака
+--WHERE name = 'Шикамару Нара';
+
+---- Обновление техник для Ино-Шика-Чоу
+--UPDATE Characters
+--SET main_techniques = 30 -- Техника Облака
+--WHERE name = 'Ино-Шика-Чоу';
+
+---- Обновление техник для Асума Сарутоби
+--UPDATE Characters
+--SET main_techniques = 31 -- Техника Облака
+--WHERE name = 'Асума Сарутоби';
+
+---- Обновление техник для Ирука Умино
+--UPDATE Characters
+--SET main_techniques = 33 -- Лечение Техникой Ниндзюцу
+--WHERE name = 'Ирука Умино';
+
+---- Обновление техник для Конохамару Сарутоби
+--UPDATE Characters
+--SET main_techniques = 34 -- Техника Облака
+--WHERE name = 'Конохамару Сарутоби';
+
+---- Обновление техник для ТэнТэн
+--UPDATE Characters
+--SET main_techniques = 35 -- Техника Облака
+--WHERE name = 'ТэнТэн';
+
+---- Обновление техник для Нэджи Хьюга
+--UPDATE Characters
+--SET main_techniques = 11 -- Бьякуган
+--WHERE name = 'Нэджи Хьюга';
+
+---- Обновление техник для Хината Хьюга
+--UPDATE Characters
+--SET main_techniques = 11 -- Бьякуган
+--WHERE name = 'Хината Хьюга';
+ 
+--DBCC CHECKIDENT (Characters, RESEED, 15);
+
+--ALTER TABLE Characters
+--ADD RangTech INT DEFAULT 1; -- Добавление нового столбца RangTech с дефолтным значением 1
+
+--ALTER TABLE Characters
+--ADD CONSTRAINT characters_rangtech_foreign FOREIGN KEY(RangTech) REFERENCES RangTech(id); -- Создание внешнего ключа между RangTech и Characters
+
+--CREATE TABLE [User] (
+--    id INT IDENTITY PRIMARY KEY,
+--    username NVARCHAR(50) NOT NULL UNIQUE, -- Логин пользователя
+--    email NVARCHAR(100) NOT NULL UNIQUE, -- Электронная почта пользователя
+--    passwordHash varchar(12) NOT NULL, -- Зашифрованный пароль пользователя
+	
+--	)
+--CREATE TABLE Roles (
+--    id INT PRIMARY KEY default 2,
+--    role_name varchar(50) NOT NULL
+--);
+
+--INSERT INTO Roles (id, role_name) VALUES (1, 'Администратор');
+--INSERT INTO Roles (id, role_name) VALUES (2, 'Пользователь')
+ 
+--ALTER TABLE [User]
+--ALTER COLUMN role INT DEFAULT 2;
+
+--ALTER TABLE [User]
+--ADD CONSTRAINT fk_User_Roles FOREIGN KEY (role) REFERENCES Roles(id);
+
+--ALTER TABLE Characters
+--DROP CONSTRAINT characters_rangtech_foreign;
+
+---- Удаление значения RangTech во всех связанных записях, чтобы избежать нарушения ссылочной целостности
+--UPDATE Characters
+--SET RangTech = NULL;
+
+---- Удаление ограничения по умолчанию
+--ALTER TABLE Characters
+--DROP CONSTRAINT DF__Character__RangT__01142BA1;
+
+---- Затем удаление столбца RangTech
+--ALTER TABLE Characters
+--DROP COLUMN RangTech;
+--ALTER TABLE Techniques
+--ADD CONSTRAINT techniques_rangtech_foreign FOREIGN KEY (rangtech) REFERENCES RangTech(id);
+
+ALTER TABLE Caudate
+ADD owner NVARCHAR(255),
+    information NVARCHAR(1000);
+UPDATE Caudate 
+SET 
+    owner = CASE id
+        WHEN 1 THEN NULL
+        WHEN 2 THEN 'Гаара'
+        WHEN 3 THEN 'Тобирама Сенджу'
+        WHEN 4 THEN 'Мадара Учиха'
+        WHEN 5 THEN 'Наруто Узумаки'
+        WHEN 6 THEN 'Хината Хьюга'
+        WHEN 7 THEN 'Шино Абураме'
+        WHEN 8 THEN 'ИноХиё'
+        WHEN 9 THEN 'Киллер Би'
+        WHEN 10 THEN 'Минато Намикадзе'
+        WHEN 11 THEN 'Кагуя Оцуцуки'
+        ELSE NULL
+    END,
+    information = CASE id
+        WHEN 1 THEN NULL
+        WHEN 2 THEN 'Одноглазый демон, обладающий способностями контроля песка.'
+        WHEN 3 THEN 'Двухвостый демон-кошка.'
+        WHEN 4 THEN 'Трехвостый демон-черепаха.'
+        WHEN 5 THEN 'Четырехвостый демон-обезьяна.'
+        WHEN 6 THEN 'Пятихвостый демон-лошадь.'
+        WHEN 7 THEN 'Шестихвостый демон-щит.'
+        WHEN 8 THEN 'Семихвостый демон-жук.'
+        WHEN 9 THEN 'Восьмихвостый демон-бык.'
+        WHEN 10 THEN 'Девятихвостый демон-лис.'
+        WHEN 11 THEN 'Десятихвостый демон-джуби, создание мира.'
+        ELSE NULL
+    END;
+
+CREATE VIEW vCharacterDetails AS
+SELECT
+    c.id AS CharacterID,
+    c.name AS CharacterName,
+    c.age AS CharacterAge,
+    t.name_team AS TeamName,
+    r.name_rang AS RangName,
+    v.name_vilage AS VillageName,
+    cd.caudatename AS CaudateName,
+    ct.name_clan AS ClanName,
+    tech.name AS MainTechnique
+FROM Characters c
+LEFT JOIN Teams t ON c.team = t.id
+LEFT JOIN Rangs r ON c.rang = r.id
+LEFT JOIN Vilages v ON c.village = v.id
+LEFT JOIN Caudate cd ON c.caudate = cd.id
+LEFT JOIN Clan ct ON c.clan = ct.id
+LEFT JOIN Techniques tech ON c.main_techniques = tech.id;
+
+select * from vCharacterDetails
+
+CREATE VIEW TechniqueRanks AS
+SELECT t.name AS TechniqueName, rt.tier AS RankName
+FROM Techniques t
+JOIN RangTech rt ON t.rangtech = rt.id;
+
+select * from TechniqueRanks
+
+CREATE TRIGGER trgPreventNegativeAge
+ON Characters
+AFTER UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT id
+        FROM inserted
+        WHERE age <= 0
+    )
+    BEGIN
+        RAISERROR('Возраст персонажа не может быть отрицательным или равным нулю.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END;
+END;

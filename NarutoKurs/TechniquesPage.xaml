@@ -1,0 +1,94 @@
+﻿<Page x:Class="NarutoKurs.TechniquesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NarutoKurs"
+     xmlns:clases="clr-namespace:NarutoKurs.clases"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TechniquesPage">
+
+    <Page.Resources>
+        <clases:RankToColorConverter x:Key="RankToColorConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Border BorderBrush="Red" BorderThickness="1">
+            <Menu x:Name="AdminMenu">
+                <MenuItem Header="*Изменение* Включен Admin-MODE">
+                    <MenuItem Header="Добавить" Click="Add_Click"/>
+                    <MenuItem Header="Удалить" Click="Delete_Click"/>
+                </MenuItem>
+            </Menu>
+        </Border>
+
+
+
+        <!-- Область для фильтрации -->
+        <Grid Margin="0,20,0,0">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27"/>
+                <ColumnDefinition Width="143"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="comboBoxTypeFilter" SelectionChanged="ComboBoxFilter_SelectionChanged" Grid.Column="2" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,0,0,0">
+                <ComboBoxItem Content="Не имеется техники"/>
+                <ComboBoxItem Content="Ниндзюцу (Техники Ниндзя)"/>
+                <ComboBoxItem Content="Гендзюцу (Иллюзорные Техники)"/>
+                <ComboBoxItem Content="Тайдзюцу (Техники Тела)"/>
+
+            </ComboBox>
+            <ComboBox x:Name="comboBoxSubtypeFilter" SelectionChanged="ComboBoxFilter_SelectionChanged" Grid.Column="2" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,26,0,0">
+                <ComboBoxItem Content="Не имеется техники"/>
+                <ComboBoxItem Content="Ниндзюцу Барьера"/>
+                <ComboBoxItem Content="Букидзюцу"/>
+                <ComboBoxItem Content="Техники Поглощения Чакры"/>
+                <ComboBoxItem Content="Техники Клонирования"/>
+                <ComboBoxItem Content="Фууиндзюцу"/>
+                <ComboBoxItem Content="Хидзюцу"/>
+                <ComboBoxItem Content="Джуиндзюцу"/>
+                <ComboBoxItem Content="Джудзюцу"/>
+                <ComboBoxItem Content="Киндзюцу"/>
+                <ComboBoxItem Content="Медицинские Ниндзюцу"/>
+                <ComboBoxItem Content="Ниншуу"/>
+                <ComboBoxItem Content="Нинтайдзюцу"/>
+                <ComboBoxItem Content="Сендзюцу"/>
+                <ComboBoxItem Content="Сюрикендзюцу"/>
+                <ComboBoxItem Content="Пространственно-Временные Ниндзюцу"/>
+            </ComboBox>
+            <ComboBox x:Name="comboBoxRangFilter" SelectionChanged="ComboBoxFilter_SelectionChanged" Grid.Column="2" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,51,0,0">
+                <ComboBoxItem Content="Не имеется ранга"/>
+                <ComboBoxItem Content="Ранг-E"/>
+                <ComboBoxItem Content="Ранг-D"/>
+                <ComboBoxItem Content="Ранг-C"/>
+                <ComboBoxItem Content="Ранг-B"/>
+                <ComboBoxItem Content="Ранг-A"/>
+                <ComboBoxItem Content="Ранг-S"/>
+            </ComboBox>
+            <TextBox x:Name="textBoxSearch" TextChanged="TextBoxFilter_TextChanged" Grid.Column="2" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="440,20,0,0"/>
+            <Label Content="Тип техники" HorizontalAlignment="Left" Margin="138,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.597" Width="135" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Label Content="Подтип техники" HorizontalAlignment="Left" Margin="138,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.597" Grid.ColumnSpan="2" Width="135" Grid.Column="1"/>
+            <Label Content="Ранг техники" HorizontalAlignment="Left" Margin="138,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.597" Grid.ColumnSpan="2" Width="135" Grid.Column="1"/>
+            <Label Content="Поиск техники" HorizontalAlignment="Left" Margin="315,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.597" Width="120" Grid.Column="2"/>
+        </Grid>
+        <DataGrid x:Name="techniquesDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding TechniquesList}" Margin="0,104,0,0">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding RangTechTier, Converter={StaticResource RankToColorConverter}}" />
+
+                    <Setter Property="Height" Value="35" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding TechniqueID}" Width="SizeToHeader" FontSize="14" />
+                <DataGridTextColumn Header="Name" Binding="{Binding TechniqueName}" Width="*" FontSize="14" />
+                <DataGridTextColumn Header="Types" Binding="{Binding TypeName}" Width="*" FontSize="14" />
+                <DataGridTextColumn Header="Subtypes" Binding="{Binding SubtypeName}" Width="*" FontSize="14" />
+                <DataGridTextColumn Header="RangTech" Binding="{Binding RangTechTier}" Width="SizeToHeader" FontSize="14" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
